@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+{# 去掉空行 #}
+{% spaceless %}
+{% endspaceless %}
+
+
+{% if show %}
+    <p>{{ param1 }}</p>
+{% endif %}
+
+<p>{{ param2 }}</p>
+
+{# 测试 #}
+
+<ul>
+    {% for foo in x %}
+        {% if forloop.first %}
+            <li>
+                <b>{{ forloop.counter }} : {{ foo }}</b>
+            </li>
+        {% else %}
+            {% if forloop.last %}
+                <li>
+                    <b>{{ forloop.counter }} : {{ foo }}</b>
+                </li>
+            {% else %}
+                <li>
+                    {{ forloop.counter }} : {{ foo }}
+                </li>
+            {% endif %}
+        {% endif %}
+
+    {% empty %}
+        <p>x.length is 0</p>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
+
